@@ -57,8 +57,8 @@ Citizen.CreateThread(function()
 		RequestModel(GetHashKey('u_m_m_streetart_01'))
 		while not HasModelLoaded(GetHashKey('u_m_m_streetart_01')) do Citizen.Wait(10) end
 		DealerPed = CreatePed(20, GetHashKey('u_m_m_streetart_01')	, Config.PositionDealerPed.x, Config.PositionDealerPed.y, Config.PositionDealerPed.z, Config.PositionDealerPed.a, false, false)
-		SetEntityInvincible(Config.DealerPed, true)
-		SetBlockingOfNonTemporaryEvents(Config.DealerPed, true)
+		SetEntityInvincible(DealerPed, true)
+		SetBlockingOfNonTemporaryEvents(DealerPed, true)
 		Citizen.Wait(1000)
 		PlayAmbientSpeech1(DealerPed, 'GENERIC_HI', 'SPEECH_PARAMS_STANDARD')
 		FreezeEntityPosition(DealerPed, true)
@@ -92,7 +92,7 @@ Citizen.CreateThread(function()
 		-- Open Seller Menu --
 		if Config.EnableSellerPed == true then
 			if GetDistanceBetweenCoords(Config.PositionSellerPed.x, Config.PositionSellerPed.y, Config.PositionSellerPed.z, GetEntityCoords(PlayerPedId())) < 2.5 then
-				Draw3DText(Config.PositionSellerPed.x, Config.PositionSellerPed.y, Config.PositionSellerPed.z + 1.0, "~g~E~s~ - Ouvrir le magasin")
+				Draw3DText(Config.PositionSellerPed.x, Config.PositionSellerPed.y, Config.PositionSellerPed.z + 1.3, "~g~E~s~ - Ouvrir le magasin")
 				if IsControlJustPressed(0, 51) then
 					RageUI.Visible(RMenu:Get('seller', 'main'), not RageUI.Visible(RMenu:Get('seller', 'main')))
 				end
@@ -102,7 +102,7 @@ Citizen.CreateThread(function()
 		-- Open Dealer Menu --
 		if Config.EnableDealerPed == true then
 			if GetDistanceBetweenCoords(Config.PositionDealerPed.x, Config.PositionDealerPed.y, Config.PositionDealerPed.z, GetEntityCoords(PlayerPedId())) < 2.5 then
-				Draw3DText(Config.PositionDealerPed.x, Config.PositionDealerPed.y, Config.PositionDealerPed.z + 1.0, "~r~E~s~ - Parler au dealer")
+				Draw3DText(Config.PositionDealerPed.x, Config.PositionDealerPed.y, Config.PositionDealerPed.z + 1.3, "~r~E~s~ - Parler au dealer")
 				if IsControlJustPressed(0, 51) then
 					RageUI.Visible(RMenu:Get('dealer', 'main'), not RageUI.Visible(RMenu:Get('dealer', 'main')))
 				end
@@ -130,7 +130,7 @@ Citizen.CreateThread(function()
 		RageUI.IsVisible(RMenu:Get('seller', 'main'), true, true, true, function()
 			if Config.ItemsForSellerPed == nil then return end
 			for k,v in pairs(Config.ItemsForSellerPed) do
-				RageUI.Button(Config.ItemsForSellerPed[k].label, nil, {}, true, function(h, a, s)
+				RageUI.Button(Config.ItemsForSellerPed[k].label, nil, {RightLabel = "~g~"..Config.ItemsForSellerPed[k].price.."$"}, true, function(h, a, s)
 					if (s) then TriggerServerEvent('esx_peds:buyItem', Config.ItemsForSellerPed[k].name, Config.ItemsForSellerPed[k].price) end
 				end, function()end)
 			end
@@ -140,7 +140,7 @@ Citizen.CreateThread(function()
 		RageUI.IsVisible(RMenu:Get('dealer', 'main'), true, true, true, function()
 			if Config.ItemsForSellerPed == nil then return end
 			for k,v in pairs(Config.ItemsForDealerPed) do
-				RageUI.Button(Config.ItemsForDealerPed[k].label, nil, {}, true, function(h, a, s)
+				RageUI.Button(Config.ItemsForDealerPed[k].label, nil, {RightLabel = "~r~"..Config.ItemsForDealerPed[k].price.."$"}, true, function(h, a, s)
 					if (s) then TriggerServerEvent('esx_peds:buyItem', Config.ItemsForDealerPed[k].name, Config.ItemsForDealerPed[k].price) end
 				end, function()end)
 			end
