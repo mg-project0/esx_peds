@@ -1,6 +1,4 @@
-##############
-## esx_peds ##
-##############
+## esx_peds 
 Dans ce script vous retrouverez deux peds. 
 Un ped qui sera un vendeur devant un magasin ou vous pourrez insérer tous les items que vous le souhaitiez.
 Et un autre ped qui sera dealer caché dans un bâtiment ou vous pourrez aussi insérer tous les items que vous le souhaitiez. 
@@ -15,9 +13,7 @@ Exemple :
 { name = 'bread', label = 'Pain', price = 10 },
 ```
 
-###################################
-## Téléchargement & Installation ##
-###################################
+## Téléchargement & Installation
 Pour l'utiliser, vous devez modifier la configuration en fonction de vos besoins. Comme c'est maintenant pour moi. (`config.lua`)
 
 ##################
@@ -42,7 +38,7 @@ start esx_peds
 
 # Legal
 ### License
-esx_peds - MG Project (mg-project0)'
+esx_peds - MG Project (mg-project0)
 
 Copyright (C) 2015-2018 Jérémie N'gadi
 
