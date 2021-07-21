@@ -15,16 +15,12 @@ client_scripts {
   "src/menu/panels/*.lua",
   "src/menu/windows/*.lua",
 
-  'locales/*.lua',
-
   'config.lua',
   'client.lua'
 }
 
 server_scripts {
   '@mysql-async/lib/MySQL.lua',
-
-  'locales/*.lua',
 
   'config.lua',
   'server.lua'
