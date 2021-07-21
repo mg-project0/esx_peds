@@ -16,9 +16,7 @@ Exemple :
 ## Téléchargement & Installation
 Pour l'utiliser, vous devez modifier la configuration en fonction de vos besoins. Comme c'est maintenant pour moi. (`config.lua`)
 
-##################
-## Informations ##
-##################
+## Informations
 ## Utilisant git
 ```
 cd resources
